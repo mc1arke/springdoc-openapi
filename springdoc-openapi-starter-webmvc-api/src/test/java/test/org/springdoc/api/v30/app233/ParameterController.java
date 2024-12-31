@@ -21,12 +21,14 @@
  *  *  *  *
  *  *  *
  *  *
- *  
+ *
  */
 package test.org.springdoc.api.v30.app233;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springdoc.core.annotations.ParameterObject;
 
@@ -36,51 +38,58 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ParameterController {
 
-	@GetMapping("/hidden-parent")
-	public void nestedParameterObjectWithHiddenParentField(@ParameterObject ParameterObjectWithHiddenField parameters) {
+    @GetMapping("/hidden-parent")
+    public void nestedParameterObjectWithHiddenParentField(@ParameterObject ParameterObjectWithHiddenField parameters) {
 
-	}
+    }
 
-	public record ParameterObjectWithHiddenField(
-			@Schema(hidden = true) NestedParameterObject schemaHiddenNestedParameterObject,
-			@Parameter(hidden = true) NestedParameterObject parameterHiddenNestedParameterObject,
-			NestedParameterObject visibleNestedParameterObject
-	) {
+    public record ParameterObjectWithHiddenField(
+            @Schema(hidden = true) NestedParameterObject schemaHiddenNestedParameterObject,
+            @Parameter(hidden = true) NestedParameterObject parameterHiddenNestedParameterObject,
+            NestedParameterObject visibleNestedParameterObject
+    ) {
 
-	}
+    }
 
-	public record NestedParameterObject(
-			String parameterField) {
-	}
+    public record NestedParameterObject(
+            String parameterField) {
+    }
 
-	@GetMapping("/renamed-parent")
-	public void nestedParameterObjectWithRenamedParentField(@ParameterObject ParameterObjectWithRenamedField parameters) {
+    @GetMapping("/renamed-parent")
+    public void nestedParameterObjectWithRenamedParentField(@ParameterObject ParameterObjectWithRenamedField parameters) {
 
-	}
+    }
 
-	public record ParameterObjectWithRenamedField(
-			@Schema(name = "schemaRenamed") NestedParameterObject schemaRenamedNestedParameterObject,
-			@Parameter(name = "parameterRenamed") NestedParameterObject parameterRenamedNestedParameterObject,
-			NestedParameterObject originalNameNestedParameterObject
-	) {
+    public record ParameterObjectWithRenamedField(
+            @Schema(name = "schemaRenamed") NestedParameterObject schemaRenamedNestedParameterObject,
+            @Parameter(name = "parameterRenamed") NestedParameterObject parameterRenamedNestedParameterObject,
+            NestedParameterObject originalNameNestedParameterObject
+    ) {
 
-	}
+    }
 
-	@GetMapping("/optional-parent")
-	public void nestedParameterObjectWithOptionalParentField(@ParameterObject ParameterObjectWithOptionalField parameters) {
+    @GetMapping("/optional-parent")
+    public void nestedParameterObjectWithOptionalParentField(@Valid @ParameterObject MultiFieldParameterObject parameters) {
 
-	}
+    }
 
-	public record ParameterObjectWithOptionalField(
-			@Schema(requiredMode = Schema.RequiredMode.NOT_REQUIRED) NestedRequiredParameterObject schemaNotRequiredNestedParameterObject,
-			@Parameter NestedRequiredParameterObject parameterNotRequiredNestedParameterObject,
-			@Parameter(required = true) NestedRequiredParameterObject requiredNestedParameterObject
-	) {
+    public record MultiFieldParameterObject(
+            @Valid @Schema(requiredMode = RequiredMode.REQUIRED) @NotNull MultiFieldNestedParameterObject requiredNotNullParameterObject,
+            @Valid @Schema(requiredMode = RequiredMode.REQUIRED) MultiFieldNestedParameterObject requiredNoValidationParameterObject,
+            @Valid @Schema(requiredMode = RequiredMode.NOT_REQUIRED) @NotNull MultiFieldNestedParameterObject notRequiredNotNullParameterObject,
+            @Valid @Schema(requiredMode = RequiredMode.NOT_REQUIRED) MultiFieldNestedParameterObject notRequiredNoValidationParameterObject,
+            @Valid @NotNull MultiFieldNestedParameterObject noSchemaNotNullParameterObject,
+            @Valid MultiFieldNestedParameterObject noSchemaNoValidationParameterObject) {
 
-	}
+    }
 
-	public record NestedRequiredParameterObject(
-			@Schema(requiredMode = Schema.RequiredMode.REQUIRED) @NotNull String requiredParameterField) {
-	}
+    public record MultiFieldNestedParameterObject (
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) @NotNull String requiredNotNullField,
+            @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String requiredNoValidationField,
+            @Schema(requiredMode = RequiredMode.NOT_REQUIRED) @NotNull String notRequiredNotNullField,
+            @Schema(requiredMode = RequiredMode.NOT_REQUIRED) String notRequiredNoValidationField,
+            @NotNull String noSchemaNotNullField,
+            String noSchemaNoValidationField) {
+    }
 
 }

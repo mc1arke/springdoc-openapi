@@ -58,25 +58,289 @@
         "operationId": "nestedParameterObjectWithOptionalParentField",
         "parameters": [
           {
-            "name": "schemaNotRequiredNestedParameterObject.requiredParameterField",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "parameterNotRequiredNestedParameterObject.requiredParameterField",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "requiredNestedParameterObject.requiredParameterField",
+            "name": "requiredNotNullParameterObject.requiredNotNullField",
             "in": "query",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNotNullParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNotNullParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNotNullParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNotNullParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNotNullParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.requiredNotNullField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requiredNoValidationParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.requiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNotNullParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.requiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notRequiredNoValidationParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.requiredNotNullField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNotNullParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.requiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.requiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.notRequiredNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.notRequiredNoValidationField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.noSchemaNotNullField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noSchemaNoValidationParameterObject.noSchemaNoValidationField",
+            "in": "query",
+            "required": false,
             "schema": {
               "type": "string"
             }
